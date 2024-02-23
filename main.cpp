@@ -1,17 +1,24 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
-int main(int argc, char** argv) {
-    int a, b, c, d;
-    printf("Input 4 numbers: ");
-    scanf("%d %d %d %d", &a, &b, &c, &d);   
-    double averageNumber = (a + b + c + d) / 4.0;
-    printf("The average number: %.6lf\n", averageNumber);
-
-    int wholePart = (int)averageNumber;
-    int rounded = (int)(averageNumber + 0.5);
-
-    printf("The whole part of the average number: %d\n", wholePart);
-    printf("Rounded average number: %d\n", rounded);
-
-    return 0;
+int main() {
+    const int n = 10;
+    int digitals[n],b; 
+    cout << "Input elements: " << endl;
+    for (int i = 0; i < 10; i++) {
+        cin >> digitals[i]; 
+    }
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 9; j++) {
+            if (digitals[j] > digitals[j + 1]) {
+                int b = digitals[j];
+                digitals[j] = digitals[j + 1]; 
+                digitals[j + 1] = b; 
+            }
+        }
+    }
+    cout << "Output elements: ";
+    for (int i = 0; i < 10; i++) {
+        cout << digitals[i] << " "; 
+    }
 }
